@@ -1,4 +1,4 @@
-import { winnerCombos } from '../const/bingoRq'
+import { winnerCombos } from "../const/bingoRq"
 
 export const checkWinner = (boardToCheck) => {
     console.log(boardToCheck + 'Me traje esto')

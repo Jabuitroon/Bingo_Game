@@ -1,6 +1,6 @@
 import { PlayerTg } from './components/PlayerTg'
 import { TableProvider } from './context/table.jsx'
-import { GameTable } from './components/GameTable.jsx'
+import { GameTable } from "./components/GameTable.jsx"
 
 export function App() {
   const saludo = (userName) => `Participante: ${userName}`
