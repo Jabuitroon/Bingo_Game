@@ -17,14 +17,16 @@ function NumbersSelectedTable() {
 }
 
 export function GameTable() {
-
   const [array, setArray] = useState(Array(25).fill(null))
-  const { numbersTable, setNumTable, numbersSelected, setNumbersSelected } = useNumberTable()
+  const { numbersTable, setNumTable, numbersSelected, setNumbersSelected } =
+    useNumberTable()
 
   const [winner, setWinner] = useState(null)
 
   const resetGame = () => {
-    const reset = Array.from({ length: 25 }, () => Math.floor(Math.random() * 100))
+    const reset = Array.from({ length: 25 }, () =>
+      Math.floor(Math.random() * 100)
+    )
     setNumTable(reset)
     setNumbersSelected([])
     setArray(Array(25).fill(null))
@@ -37,11 +39,15 @@ export function GameTable() {
     let sltdNumbers = [...numbersSelected]
     let element = board[index]
 
-    sltdNumbers.includes(board[index]) ? sltdNumbers = sltdNumbers.filter((f) => f != board[index]) : sltdNumbers.push(board[index])
+    sltdNumbers.includes(board[index])
+      ? (sltdNumbers = sltdNumbers.filter((f) => f != board[index]))
+      : sltdNumbers.push(board[index])
     setNumbersSelected(sltdNumbers)
 
     let nextIndex = [...array]
-    nextIndex.includes(element) ? nextIndex = nextIndex.filter((f) => f != nextIndex[index]) : nextIndex[index] = element
+    nextIndex.includes(element)
+      ? (nextIndex = nextIndex.filter((f) => f != nextIndex[index]))
+      : (nextIndex[index] = element)
     setArray(nextIndex)
 
     const newWinner = checkWinner(nextIndex)
@@ -66,17 +72,15 @@ export function GameTable() {
         <div className='game'>
           {numbersTable.map((_, index) => {
             return (
-              <Square key={index} index={index} updateBoard={updateBoard} >
+              <Square key={index} index={index} updateBoard={updateBoard}>
                 {numbersTable[index]}
               </Square>
             )
           })}
         </div>
-        {
-          winner !== null && (
-            <WinnerModal winnersModal={winner} resetGameModal={resetGame} />
-          )
-        }
+        {winner !== null && (
+          <WinnerModal winnersModal={winner} resetGameModal={resetGame} />
+        )}
       </section>
     </>
   )
