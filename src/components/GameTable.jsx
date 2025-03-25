@@ -8,10 +8,13 @@ import { WinnerModal } from '../components/winnerModal'
 function NumbersSelectedTable() {
   const { numbersSelected } = useNumberTable()
 
+  const pImg = `/src/img/guideTable.png`
+
   return (
     <article>
       <header>Tus numeros ganadores</header>
       <div>{numbersSelected}</div>
+      <img className='player-card-avatar' src={pImg} />
     </article>
   )
 }
